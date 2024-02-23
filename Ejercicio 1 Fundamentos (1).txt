@@ -1,0 +1,125 @@
+package Loquequierta;
+
+import java.util.Scanner;
+
+public class Ejerjer1 {
+
+	public static void main(String[] args) {
+		int a = 5, b = 10;
+		int suma = 0, resta = 0, multiplicacion = 0, division = 0, mod = 0;
+		boolean bandera1 = false, bandera2 = false, bandera3 = false, bandera4 = false;
+		suma = a+b;
+		resta = a-b;
+		multiplicacion = a*b;
+		division = a/b;
+		mod = a%b;
+		
+		a++;
+		b--;
+		
+		suma = a+b;
+		resta = a-b;
+		multiplicacion = a*b;
+		division = a/b;
+		mod = a%b;
+		
+		a += 2;
+		b *=3;
+		
+		suma = a+b;
+		resta = a-b;
+		multiplicacion = a*b;
+		division = a/b;
+		mod = a%b;
+		
+		System.out.println(suma);
+		System.out.println(resta);
+		System.out.println(multiplicacion);
+		System.out.println(division);
+		System.out.println(mod);
+		
+		if ( a == b) {
+			bandera1 = true;
+			System.out.println(a + " == " + b);
+		} else {
+			if (a != b) {
+				bandera2 = true;
+				System.out.println(a + " != " + b);
+			} else {
+				if (a > b) {
+					bandera3 = true;
+					System.out.println(a + " > " + b);
+				} else {
+					if (a < b) {
+						bandera4 = true;
+						System.out.println(a + " < " + b);
+					}
+				}
+			}
+		}
+		System.out.println("El valor de a es " + a);
+		System.out.println("El valor de b es " + b);
+	}
+}package Loquequierta;
+
+import java.util.Scanner;
+
+public class Ejerjer1 {
+
+	public static void main(String[] args) {
+		int a = 5, b = 10;
+		int suma = 0, resta = 0, multiplicacion = 0, division = 0, mod = 0;
+		boolean bandera1 = false, bandera2 = false, bandera3 = false, bandera4 = false;
+		suma = a+b;
+		resta = a-b;
+		multiplicacion = a*b;
+		division = a/b;
+		mod = a%b;
+		
+		a++;
+		b--;
+		
+		suma = a+b;
+		resta = a-b;
+		multiplicacion = a*b;
+		division = a/b;
+		mod = a%b;
+		
+		a += 2;
+		b *=3;
+		
+		suma = a+b;
+		resta = a-b;
+		multiplicacion = a*b;
+		division = a/b;
+		mod = a%b;
+		
+		System.out.println(suma);
+		System.out.println(resta);
+		System.out.println(multiplicacion);
+		System.out.println(division);
+		System.out.println(mod);
+		
+		if ( a == b) {
+			bandera1 = true;
+			System.out.println(a + " == " + b);
+		} else {
+			if (a != b) {
+				bandera2 = true;
+				System.out.println(a + " != " + b);
+			} else {
+				if (a > b) {
+					bandera3 = true;
+					System.out.println(a + " > " + b);
+				} else {
+					if (a < b) {
+						bandera4 = true;
+						System.out.println(a + " < " + b);
+					}
+				}
+			}
+		}
+		System.out.println("El valor de a es " + a);
+		System.out.println("El valor de b es " + b);
+	}
+}
