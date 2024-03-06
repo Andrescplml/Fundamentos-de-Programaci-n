@@ -1,0 +1,72 @@
+package Parcial1;
+
+public class Ejercioparcial1 {
+
+	public static void main(String[] args) {
+		
+		int FaccionA = 1500, FaccionB = 1300;
+		int FuerzaDA = 0, FuerzaDB = 0;
+		int BajasF1A = 0, BajasF2A = 0, BajasF3A = 0, BajasTA = 0, BajasTB = 0;
+		int M1A = 30, M2A = 10, M3A = 2;
+		int H1A = 60, H2A = 60, H3A = 3;
+		int D1A = 90, D2A = 30 , D3A = 0;
+		int BajasF1B = 0, BajasF2B = 0, BajasF3B = 0;
+		int M1B = 50, M2B = 200, M3B = 10;
+		int H1B = 90, H2B = 180, H3B = 5;
+		int D1B = 10, D2B = 20, D3B = 75;
+		int TotalPerdidasIn = 0, TotalPerdidasCa = 0, TotalPerdidasCP = 0;
+		int PerdidaGlobal = 0;
+		
+		BajasF1A = M1A + M2A + M3A; 
+		BajasF2A = H1A + H2A + H3A; 
+		BajasF3A = D1A + D2A + D3A;
+		BajasTA = BajasF1A + BajasF2A + BajasF3A;
+		
+		
+		BajasF1B = M1B + M2B + M3B; 
+		BajasF2B = H1B + H2B + H3B; 
+		BajasF3B = D1B + D2B + D3B;
+		BajasTB = BajasF1B + BajasF2B + BajasF3B;
+		
+		FuerzaDA = FaccionA - BajasTA;
+		FuerzaDB = FaccionB - BajasTB;
+		
+		TotalPerdidasIn = BajasF1A + BajasF1B;
+		TotalPerdidasCa = BajasF2A + BajasF2B;
+		TotalPerdidasCP = BajasF3A + BajasF3B;
+		
+		PerdidaGlobal = TotalPerdidasIn + TotalPerdidasCa + TotalPerdidasCP;
+		
+		System.out.println("RESUMEN DE PERDIDAS DE LA FACCIÓN A");
+		System.out.println();
+		System.out.println("FUERZA DE COMBATE INCIAL: " + FaccionA);
+		System.out.println("Bajas totales fila de Infanteria: " + BajasF1A);
+		System.out.println("Bajas totales fila de Caballería: " + BajasF2A);
+		System.out.println("Bajas totales fila de Caballería Pesada: " + BajasF3A);
+		System.out.println("Bajas totales: " + BajasTA);
+		System.out.println("Fuerza Disponible para la acción: " + FuerzaDA);
+		System.out.println();
+		System.out.println();
+		System.out.println("RESUMEN DE PERDIDAS DE LA FACCIÓN B");
+		System.out.println();
+		System.out.println("FUERZA DE COMBATE INCIAL: " + FaccionB);
+		System.out.println("Bajas totales fila de Infanteria: " + BajasF1B);
+		System.out.println("Bajas totales fila de Caballería: " + BajasF2B);
+		System.out.println("Bajas totales fila de Caballería Pesada: " + BajasF3B);
+		System.out.println("Bajas totales: " + BajasTB);
+		System.out.println("Fuerza Disponible para la acción: " + FuerzaDB);
+		System.out.println();
+		System.out.println();
+		System.out.println("RESUMEN DE PERDIDAS GLOBALES DE FUERZAS MILITARES");
+		System.out.println();
+		System.out.println("Perdidas globales de Infanteria: " + TotalPerdidasIn);
+		System.out.println("Perdidas globales de Caballería: " + TotalPerdidasCa);
+		System.out.println("Perdidas globales de Caballería Pesada: " + TotalPerdidasCP);
+		System.out.println("TOTAL DE PERDIDAS GLOBALES: " + PerdidaGlobal);
+		
+		
+		
+
+	}
+
+}
