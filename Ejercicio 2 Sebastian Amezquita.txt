@@ -9,8 +9,8 @@ public class matriz {
 		System.out.print("Digite un numero:");
 		n= leer.nextInt();
 		for (int i=0;i<n;i++) {
-		for (int j=1;j<n;j++) {
-			System.out.print("* ");
+		for (int j=0;j<n;j++) {
+			System.out.print("*");
 		}
 		System.out.println("*");
 		}

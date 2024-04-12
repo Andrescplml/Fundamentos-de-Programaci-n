@@ -1,13 +1,23 @@
-class HelloWorld {
-    public static void main(String[] args) {
+package fundamentosdeprogramacion;
+
+import java.util.Scanner;
+
+public class recursiva {
+public static void main(String[] args) {
+	
+	double respuesta=Factorial(10);
         
-        int n = 5, i;
-        int factorial = 1;
-        
-        for (i = 1; i <= n; i++){
-            factorial *= i;
-        }
-        
-        System.out.println(factorial);
+        System.out.print(respuesta);
+
     }
+    public static double Factorial (int n) {
+        
+       double acumulador=1;
+        for(int i=1; i<n; i++) {
+        	double res=n*i;
+        	acumulador *=res;
+        }
+       
+        return acumulador;
+    }
 }

@@ -1,0 +1,94 @@
+package mariobros;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Scanner;
+
+public class picasyfijasfunciones {
+
+	public static int[] generarNumerosAleatoriosSinRepeticion(int n) {
+		int num;
+		Random rand = new Random();
+		HashSet<Integer> numerosGenerados = new HashSet<>();
+		int[] numerosAleatorios = new int[n];
+		for (int i = 0; i < n; i++) {
+			do {
+				num = rand.nextInt(10);
+			} while (numerosGenerados.contains(num));
+			numerosAleatorios[i] = num;
+			numerosGenerados.add(num);
+		}
+		return numerosAleatorios;
+	}
+
+	public static int contarFijas(int[] numeroSecreto, int[] intento) {
+		int cf = 0;
+		for (int i = 0; i < numeroSecreto.length; i++) {
+			if (numeroSecreto[i] == intento[i]) {
+				cf++;
+			}
+		}
+		return cf;
+	}
+
+	public static int contarPicas(int[] numeroSecreto, int[] intento) {
+		int cp = 0;
+		for (int i = 0; i < numeroSecreto.length; i++) {
+			for (int j = 0; j < intento.length; j++) {
+				if (i != j && numeroSecreto[i] == intento[j]) {
+					cp++;
+					break;
+				}
+			}
+		}
+		return cp;
+	}
+
+	public static void main(String[] args) {
+		int n;
+		int intentos = 1;
+		boolean bandera = false;
+
+		System.out.println("!!! BIENVENIDO AL JUEGO DE PICAS Y FIJAS !!!\n");
+
+		Scanner leer = new Scanner(System.in);
+		System.out.print("Digite cuántos dígitos quiere: ");
+		n = leer.nextInt();
+
+		int Ng[] = generarNumerosAleatoriosSinRepeticion(n);
+		int Nu[] = new int[n];
+
+		System.out.println("\n!!! COMENCEMOS !!!\n");
+
+		do {
+			System.out.println("!!! " + intentos + " INTENTO !!!\n");
+
+			for (int i = 0; i < n; i++) {
+				System.out.print("Digite el valor para Na[" + i + "]: ");
+				Nu[i] = leer.nextInt();
+			}
+
+			int cf = contarFijas(Ng, Nu);
+			int cp = contarPicas(Ng, Nu);
+
+			System.out.println("\n!!! Tiene " + cf + " Fijas !!!");
+			System.out.println("!!! Tiene " + cp + " Picas !!!\n");
+
+			if (cf == n) {
+				bandera = true;
+			}
+
+			intentos++;
+
+		} while (bandera != true);
+
+		System.out.println("!!! GANASTE !!!\n");
+		for (int i = 0; i < n; i++) {
+			System.out.print(Ng[i] + "\t");
+		}
+		System.out.println();
+		for (int i = 0; i < n; i++) {
+			System.out.print(Nu[i] + "\t");
+		}
+	}
+}

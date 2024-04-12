@@ -1,0 +1,144 @@
+package Parcial1;
+
+import java.util.Scanner;
+
+public class Cinemark {
+
+	static int[][] sillas = new int[8][8];
+	static int ocupado = 1;
+	static int Libre = 2;
+	static int i = 0;
+	static int j = 0;
+
+	public Cinemark() {
+
+		for (int i = 1; i < 8; i++) {
+			for (int j = 1; j < 8; j++) {
+				sillas[i][j] = Libre;
+
+			}
+		}
+	}
+
+	public static void IniciarSala() {
+
+		for (int i = 1; i < 8; i++) {
+			for (int j = 1; j < 8; j++) {
+				sillas[i][j] = Libre;
+				System.out.print(sillas[i][j]);
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+
+	}
+
+	public static void SistemaReserva(Scanner leer) {
+
+		int i = 0;
+		int j = 0;
+		int cant = 0;
+
+		System.out.println("Ingrese la cantidad de asientos que desea reservar:");
+        cant = leer.nextInt();
+
+        System.out.println("Seleccione los asientos que desea reservar.");
+
+        for (int k = 0; k < cant; k++) {
+            System.out.print("Digite la posición para la fila para el asiento " + (k + 1) + ": ");
+            i = leer.nextInt();
+            System.out.print("Digite la posición para la columna para el asiento " + (k + 1) + ": ");
+            j = leer.nextInt();
+
+            if ((i < 1 || i > 8) || (j < 1 || j > 8)) {
+                System.out.println("Seleccione un asiento valido");
+                k--;
+            } else {
+
+                if (sillas[i][j] == ocupado) {
+                    System.out.println("El asiento " + i + ", " + j + " ya está ocupado, seleccione otro.");
+                    k--;
+                } else {
+                    sillas[i][j] = ocupado;
+                }
+            }
+        }
+        for (i = 1; i < 8; i++) {
+            for (j = 1; j < 8; j++) {
+                System.out.print(sillas[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
+	public static void CancelarReserva(Scanner leer) {
+
+		int i = 0;
+		int j = 0;
+
+		System.out.println("Seleccione el asiento que desea cancelar.");
+		System.out.print("Digite la posición para la fila: ");
+
+		i = leer.nextInt();
+		System.out.print("Digite la posición para la columna: ");
+
+		j = leer.nextInt();
+
+		if ((i < 1 || i > 8) || (j < 1 || j > 8)) {
+			System.out.println("Seleccione un asiento valido");
+		} else {
+
+			if (sillas[i][j] == ocupado) {
+				sillas[i][j] = Libre;
+				for (i = 1; i < 8; i++) {
+					for (j = 1; j < 8; j++) {
+						System.out.print(sillas[i][j]);
+						System.out.print(" ");
+					}
+					System.out.println();
+				}
+				System.out.println("Asiento cancelado con exito.");
+
+			} else {
+
+				System.out.println("No se puede cancelar un asiento libre.");
+
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+
+		boolean bandera = true;
+		int opcion;
+
+		Scanner leer = new Scanner(System.in);
+
+		IniciarSala();
+
+		do {
+			System.out.println("Menú:");
+			System.out.println("1. Reservar asiento");
+			System.out.println("2. Cancelar reserva");
+			System.out.println("3. Salir");
+
+			opcion = leer.nextInt();
+
+			switch (opcion) {
+			case 1:
+				SistemaReserva(leer);
+				break;
+			case 2:
+				CancelarReserva(leer);
+				break;
+			case 3:
+				bandera = false;
+				break;
+			default:
+				System.out.println("Opción inválida, por favor intente de nuevo.");
+			}
+
+		} while (bandera != false);
+	}
+}

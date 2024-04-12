@@ -1,0 +1,118 @@
+package mariobros;
+
+import java.util.Scanner;
+
+public class ahorcadofunciones {
+
+	public static void iniciarjuego(char[] palabra, Scanner leer, String Na) {
+
+		for (int i = 0; i < Na.length(); i++) {
+			palabra[i] = '_';
+		}
+		System.out.println("\n...::: ESTA ES LA PALABRA QUE DEBES ADIVINAR :::...\n");
+
+		for (int i = 0; i < Na.length(); i++) {
+			System.out.print(palabra[i] + " ");
+		}
+	}
+
+	public static void validarletras(char[] palabra, Scanner leer, String Na) {
+
+		int cl = 0, opo = 0;
+		boolean bandera = false;
+
+		do {
+
+			System.out.print("\n\nDigite la letra: ");
+			String letra = leer.nextLine();
+
+			for (int i = 0; i < Na.length(); i++) {
+
+				if (letra.equals(Na.substring(i, i + 1))) {
+					cl++;
+					System.out.println("\nLa letra " + letra + " está en la posición " + i);
+					bandera = true;
+					palabra[i] = Na.substring(i, i + 1).charAt(0);
+				}
+			}
+
+			if (bandera == false) {
+				opo++;
+				if (opo == 1) {
+					System.out.println("  O");
+					System.out.println(" /|\\");
+					System.out.println(" / \\  ");
+					System.out.println();
+					System.out.println("=========''']");
+				} else {
+					if (opo == 2) {
+						System.out.println("  O");
+						System.out.println(" /|\\");
+						System.out.println(" / \\  |");
+						System.out.println("      |");
+						System.out.println("=========''']");
+					} else {
+						if (opo == 3) {
+							System.out.println("      |");
+							System.out.println("  O   |");
+							System.out.println(" /|\\  |");
+							System.out.println(" / \\  |");
+							System.out.println("      |");
+							System.out.println("=========''']");
+						} else {
+							if (opo == 4) {
+								System.out.println("  +---+");
+								System.out.println("      |");
+								System.out.println("  O   |");
+								System.out.println(" /|\\  |");
+								System.out.println(" / \\  |");
+								System.out.println("      |");
+								System.out.println("=========''']");
+							} else {
+								System.out.println("  +---+");
+								System.out.println("  |   |");
+								System.out.println("  O   |");
+								System.out.println(" /|\\  |");
+								System.out.println(" / \\  |");
+								System.out.println("      |");
+								System.out.println("=========''']");
+								System.out.println("Ahorcado");
+							}
+						}
+					}
+				}
+			}
+
+			System.out.println();
+			for (int i = 0; i < Na.length(); i++) {
+				System.out.print(palabra[i] + " ");
+			}
+
+			bandera = false;
+
+		} while (cl != palabra.length && opo != 5);
+
+		if (opo == 5) {
+			System.out.println("\n\n!!! PERDISTE, LA PALABRA ERA: " + Na + " !!!");
+		} else {
+			System.out.println("\n!!! GANASTE !!!");
+		}
+	}
+
+	public static void main(String[] args) {
+
+		String Na, letra;
+
+		Scanner leer = new Scanner(System.in);
+
+		System.out.println("!!! JUEGO DEL AHORCADO !!!\n");
+
+		System.out.print("Digite la palabra: ");
+		Na = leer.nextLine();
+		char palabra[] = new char[Na.length()];
+
+		iniciarjuego(palabra, leer, Na);
+		validarletras(palabra, leer, Na);
+
+	}
+}

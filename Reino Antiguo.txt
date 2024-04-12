@@ -1,0 +1,72 @@
+package fundamentosdeprogramacion;
+import java.util.Scanner;
+public class ReinoAntiguo {
+
+	public static char[] abecedario() {
+		
+		char[] abecedario = new char[27];
+
+        for (int i = 0; i < 14; i++) {
+            abecedario[i] = (char)('a' + i);
+        }
+        abecedario[14] = 'ñ';
+        for (int i = 15; i < 27; i++) {
+            abecedario[i] = (char)('a' + i - 1);
+        }
+        System.out.println("ABECEDARIO:");
+        for (char letra : abecedario) {
+            System.out.print(letra + " ");
+        }
+        System.out.println();
+		return abecedario; 
+        
+    }
+	
+	public static String reconocerPalabraSecreta(String PalabraS, char[]abecedario) {
+		
+	    StringBuilder resultado = new StringBuilder();
+	    for (int i = 0; i < PalabraS.length(); i++) {
+	        char letra = PalabraS.charAt(i);
+	        int index = -1;
+
+	        // Buscar la posición de la letra en el abecedario
+	        for (int j = 0; j < abecedario.length; j++) {
+	            if (abecedario[j] == letra) {
+	                index = j;
+	                break;
+	            }
+	        }
+
+	        if (index != -1) {
+	            // Descifrar la letra
+	            int newIndex = (index - 3 + abecedario.length) % abecedario.length;
+	            char letraDescifrada = abecedario[newIndex];
+	            resultado.append(letraDescifrada);
+	        } else {
+	            // Si la letra no está en el abecedario, mantenerla igual
+	            resultado.append(letra);
+	        }
+	    }
+	    return resultado.toString();
+		
+	}
+		
+	public static void main(String[] args) {
+		
+		String PalabraS;
+		
+		Scanner leer = new Scanner(System.in);
+		
+		System.out.print("Ingrese la palabra secreta: ");
+		
+		PalabraS = leer.nextLine();
+		
+		char palabra [] = new char[(PalabraS.length())];
+		
+		String palarabaDecifrada = reconocerPalabraSecreta(PalabraS, abecedario());
+		
+        System.out.println("Palabra descifrada: " + palarabaDecifrada);
+
+	}
+
+}
